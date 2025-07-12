@@ -1,16 +1,10 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import React from "react";
-import { Link, Stack } from "expo-router";
-import { LinearGradient } from "expo-linear-gradient";
-import { Colors } from "@/constants/Colors";
-import Animated, { FadeInRight } from "react-native-reanimated";
 import SocialLoginButtons from "@/components/SocialLoginButtons";
+import { Colors } from "@/constants/Colors";
+import { LinearGradient } from "expo-linear-gradient";
+import { Link, Stack } from "expo-router";
+import React from "react";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import Animated, { FadeInRight } from "react-native-reanimated";
 
 type Props = {};
 
@@ -37,21 +31,20 @@ const WelcomeScreen = (props: Props) => {
                 style={styles.title}
                 entering={FadeInRight.delay(300).duration(300).springify()}
               >
-                McDnld
+                Armorstandart
               </Animated.Text>
               <Animated.Text
                 style={styles.description}
                 entering={FadeInRight.delay(500).duration(300).springify()}
               >
-                One Stop Solution for All you Needs.
+                Дистриб&apos;ютор аксесуарів для мобільних пристроїв.
               </Animated.Text>
               <SocialLoginButtons emailHref={"/signup"} />
+
               <Text style={styles.loginTxt}>
-                Already have an account?{" "}
+                Вже маєте обліковий запис?{" "}
                 <Link href={"./signin"} asChild>
-                  <TouchableOpacity>
-                    <Text style={styles.loginTxtSpan}>SignIn</Text>
-                  </TouchableOpacity>
+                  <Text style={styles.loginTxtSpan}>Увійти</Text>
                 </Link>
               </Text>
             </View>
@@ -86,11 +79,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 22,
-    color: Colors.primary,
-    fontWeight: "700",
+    fontSize: 26,
+    color: Colors.black,
+    fontWeight: "900",
     letterSpacing: 1.2,
-    marginBottom: 5,
+    marginBottom: 10,
+    textAlign: "center",
+    shadowColor: "#000", // тень для глубины
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2.84,
+    elevation: 5,
   },
   description: {
     fontSize: 14,
@@ -98,6 +97,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1.2,
     lineHeight: 30,
     marginBottom: 20,
+    textAlign: "center",
   },
   loginTxt: {
     marginTop: 30,
@@ -111,19 +111,3 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
 });
-
-// import { Text, View } from "react-native";
-
-// export default function Index() {
-//   return (
-//     <View
-//       style={{
-//         flex: 1,
-//         justifyContent: "center",
-//         alignItems: "center",
-//       }}
-//     >
-//       <Text>Edit app/index.tsx to edit this screen.</Text>
-//     </View>
-//   );
-// }

@@ -1,66 +1,87 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { Link, router, Stack } from 'expo-router'
+import { router, Stack } from "expo-router";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+import InputField from "@/components/InputField";
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import InputField from "@/components/InputField";
-import SocialLoginButtons from "@/components/SocialLoginButtons";
 
-
-type Props = {}
+type Props = {};
 
 const SignUpScreen = (props: Props) => {
   return (
     <>
-      <Stack.Screen options={{
-        headerTitle: 'Sign Up', headerLeft: () => (
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="close" size={24} color={Colors.black} />
-          </TouchableOpacity>
-        )
-      }} />
+      <Stack.Screen
+        options={{
+          headerTitle: "Створити акаунт",
+          headerLeft: () => (
+            <TouchableOpacity onPress={() => router.back()}>
+              <Ionicons name="close" size={24} color={Colors.black} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
       <View style={styles.container}>
-        <Text style={styles.title}>Create an account</Text>
-        <InputField placeholder="Email Address" placeholderTextColor={Colors.gray} autoCapitalize="none"
-          keyboardType="email-address" />
-        <InputField placeholder="Password" placeholderTextColor={Colors.gray} secureTextEntry={true} />
-        <InputField placeholder="Confirm Password" placeholderTextColor={Colors.gray} secureTextEntry={true} />
+        <Text style={styles.title}>Реєстрація</Text>
+        <InputField
+          placeholder="Електронна пошта"
+          placeholderTextColor={Colors.gray}
+          autoCapitalize="none"
+          keyboardType="email-address"
+        />
+        <InputField
+          placeholder="Пароль"
+          placeholderTextColor={Colors.gray}
+          secureTextEntry={true}
+        />
+        <InputField
+          placeholder="Підтвердьте пароль"
+          placeholderTextColor={Colors.gray}
+          secureTextEntry={true}
+        />
 
         <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnTxt}>Create an Account</Text>
+          <Text style={styles.btnTxt}>Зареєструватися</Text>
         </TouchableOpacity>
-
-        <Text style={styles.loginTxt}>
-          Already have an account? {" "}
-          <Link href={"/signin"} asChild>
-            <TouchableOpacity>
-              <Text style={styles.loginTxtSpan}>SignIn</Text>
-            </TouchableOpacity>
-          </Link>
-        </Text>
-
         <View style={styles.divider} />
-
-        <SocialLoginButtons emailHref={'/signin'} />
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "baseline",
+            flexWrap: "wrap",
+            paddingHorizontal: 10,
+          }}
+        >
+          <Text style={styles.loginTxt}>Вже маєте обліковий запис? </Text>
+          <TouchableOpacity
+            onPress={() => {
+              router.dismissAll();
+              router.push("/signin");
+            }}
+          >
+            <Text style={styles.loginTxtSpan}>Увійти</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </>
-  )
-}
+  );
+};
 
-export default SignUpScreen
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     padding: 20,
     backgroundColor: Colors.background,
   },
   title: {
+    textAlign: "center",
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: "600",
     letterSpacing: 1.2,
     color: Colors.black,
     marginBottom: 50,
@@ -69,7 +90,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     paddingVertical: 12,
     paddingHorizontal: 18,
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
     borderRadius: 5,
     fontSize: 16,
     color: Colors.black,
@@ -79,15 +100,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingVertical: 14,
     paddingHorizontal: 18,
-    alignSelf: 'stretch',
-    alignItems: 'center',
+    alignSelf: "stretch",
+    alignItems: "center",
     borderRadius: 5,
     marginBottom: 20,
   },
   btnTxt: {
     color: Colors.white,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   loginTxt: {
     marginBottom: 30,
@@ -98,12 +119,13 @@ const styles = StyleSheet.create({
 
   loginTxtSpan: {
     color: Colors.primary,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   divider: {
     borderTopColor: Colors.gray,
     borderTopWidth: StyleSheet.hairlineWidth,
-    width: '30%',
-    marginBottom: 30,
-  }
-})
+    width: "30%",
+    marginBottom: 20,
+    marginTop: 20,
+  },
+});

@@ -1,6 +1,5 @@
 import { Colors } from "@/constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { Href, Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
@@ -18,26 +17,27 @@ const SocialLoginButtons = (props: Props) => {
         <Link href={emailHref} asChild>
           <TouchableOpacity style={styles.button}>
             <Ionicons name="mail-outline" size={20} color={Colors.black} />
-            <Text style={styles.btnText}>Continue with Email</Text>
+            <Text style={styles.btnText}>Зареєструйся по email</Text>
           </TouchableOpacity>
         </Link>
       </Animated.View>
-      <Animated.View entering={FadeInDown.delay(700).duration(500)}>
+
+      {/* <Animated.View entering={FadeInDown.delay(700).duration(500)}>
         <TouchableOpacity style={styles.button}>
-          {/* <Google width={20} height={20} /> */}
           <Image
             source={require("./../assets/images/google-logo.png")}
             style={{ width: 20, height: 20, borderRadius: 20 }}
           />
-          <Text style={styles.btnText}>Continue with Google</Text>
+          <Text style={styles.btnText}>Google-вхід</Text>
         </TouchableOpacity>
-      </Animated.View>
-      <Animated.View entering={FadeInDown.delay(1100).duration(500)}>
+      </Animated.View> */}
+
+      {/* <Animated.View entering={FadeInDown.delay(1100).duration(500)}>
         <TouchableOpacity style={styles.button}>
           <Ionicons name="logo-apple" size={20} color={Colors.black} />
-          <Text style={styles.btnText}>Continue with Apple</Text>
+          <Text style={styles.btnText}>Apple-вхід</Text>
         </TouchableOpacity>
-      </Animated.View>
+      </Animated.View> */}
     </View>
   );
 };
