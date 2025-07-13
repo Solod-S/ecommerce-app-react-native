@@ -1,6 +1,6 @@
-import React from "react";
-import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import React from "react";
 
 export default function TabLayout() {
   return (
@@ -8,7 +8,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Головна",
           tabBarIcon: ({ color }) => (
             <Ionicons name="home-outline" size={22} color={color} />
           ),
@@ -17,7 +17,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="explore"
         options={{
-          title: "Explore",
+          title: "Пошук",
           tabBarIcon: ({ color }) => (
             <Ionicons name="search-outline" size={22} color={color} />
           ),
@@ -26,7 +26,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="notifications"
         options={{
-          title: "Notification",
+          href: null, // скрыть вкладку
+          title: "Сповіщення",
           tabBarIcon: ({ color }) => (
             <Ionicons name="notifications-outline" size={22} color={color} />
           ),
@@ -35,7 +36,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cart"
         options={{
-          title: "Cart",
+          href: null, // скрыть вкладку
+          title: "Кошик",
           tabBarBadge: 3,
           tabBarIcon: ({ color }) => (
             <Ionicons name="cart-outline" size={22} color={color} />
@@ -45,7 +47,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "Profile",
+          title: "Профіль",
           tabBarIcon: ({ color }) => (
             <Ionicons name="person-outline" size={22} color={color} />
           ),
