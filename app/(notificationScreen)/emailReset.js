@@ -1,6 +1,6 @@
 import { useNavigation, useRouter } from "expo-router";
 import LottieView from "lottie-react-native";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import {
@@ -67,10 +67,7 @@ export default function EmailReset() {
             fontFamily: "outfit",
           }}
         >
-          Ми надіслали вам лист з інструкціями щодо скидання пароля. Будь ласка,
-          перевірте вашу поштову скриньку та дотримуйтесь вказаних кроків. Якщо
-          ви не бачите листа, перевірте папку &quot;Спам&quot; або надішліть
-          запит ще раз у налаштуваннях облікового запису.
+          Ми надіслали вам лист з інструкціями щодо скидання пароля.
         </Text>
       </Animated.View>
       <Animated.View

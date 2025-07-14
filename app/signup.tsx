@@ -21,6 +21,7 @@ import Loading from "@/components/Loading";
 import { Colors } from "@/constants/Colors";
 import useAuthStore from "@/store/useAuthStore";
 import { Ionicons } from "@expo/vector-icons";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
 const isIphone = Platform.OS === "ios";
 
@@ -39,11 +40,10 @@ const SignUpScreen = () => {
   }, []);
 
   const onCreateUserWithEmailAndPassword = async () => {
-    console.log("onCreateUserWithEmailAndPassword called");
-    router.replace("emailVerify");
     if (!email || !password || !fullName) {
       if (isIphone) {
         Toast.show({
+          onPress: () => Toast.hide(),
           type: "error",
           position: "top",
           text1: "Реєстрація не вдалася",
@@ -63,7 +63,7 @@ const SignUpScreen = () => {
     try {
       const { success } = await register(email.trim(), password, fullName);
       if (success) {
-        // router.replace("emailVerify");
+        router.replace("emailVerify");
       }
     } catch (error: { code: string; message: string } | any) {
       const errorCode = error?.code;
@@ -74,6 +74,7 @@ const SignUpScreen = () => {
         case "auth/email-already-in-use":
           if (isIphone) {
             Toast.show({
+              onPress: () => Toast.hide(),
               type: "error",
               position: "top",
               text1: "Реєстрація не вдалася",
@@ -94,6 +95,7 @@ const SignUpScreen = () => {
         case "auth/weak-password":
           if (isIphone) {
             Toast.show({
+              onPress: () => Toast.hide(),
               type: "error",
               position: "top",
               text1: "Реєстрація не вдалася",
@@ -113,6 +115,7 @@ const SignUpScreen = () => {
         case "auth/invalid-email":
           if (isIphone) {
             Toast.show({
+              onPress: () => Toast.hide(),
               type: "error",
               position: "top",
               text1: "Реєстрація не вдалася",
@@ -132,6 +135,7 @@ const SignUpScreen = () => {
             .replace(/-/g, " ");
           if (isIphone) {
             Toast.show({
+              onPress: () => Toast.hide(),
               type: "error",
               position: "top",
               text1: "Реєстрація не вдалася",
@@ -159,15 +163,16 @@ const SignUpScreen = () => {
           <TouchableOpacity onPress={() => router.back()}>
             <Ionicons name="arrow-back" size={24} color="black" />
           </TouchableOpacity>
-          <Text
+          <Animated.Text
+            entering={FadeInDown.delay(200).duration(500).springify()}
             style={{
-              marginTop: 5,
+              marginTop: 15,
               fontFamily: "outfit-bolt",
               fontSize: hp(3.5),
             }}
           >
-            Давайте створимо новий акаунт
-          </Text>
+            Давайте створимо новий обліковий запис
+          </Animated.Text>
 
           {/* Email */}
           <View style={{ marginTop: 30 }}>
@@ -182,12 +187,12 @@ const SignUpScreen = () => {
 
           {/* User Name */}
           <View style={{ marginTop: 20 }}>
-            <Text style={{ fontSize: hp(2) }}>Повне ім&apos;я</Text>
+            <Text style={{ fontSize: hp(2) }}>Повне ім’я</Text>
             <TextInput
               onChangeText={value => setFullName(value)}
               placeholderTextColor={styles.placeholder.color}
               style={styles.input}
-              placeholder="Введіть повне ім'я"
+              placeholder="Введіть повне ім’я"
             />
           </View>
 
@@ -205,7 +210,6 @@ const SignUpScreen = () => {
 
           <View>
             {/* Sign In  Btn*/}
-
             {isLoading ? (
               <View
                 style={{
@@ -215,7 +219,7 @@ const SignUpScreen = () => {
                   borderRadius: 99,
                 }}
               >
-                <Loading color="white" size={hp(3)} />
+                <Loading color="white" size={hp(3.2)} />
               </View>
             ) : (
               <TouchableOpacity

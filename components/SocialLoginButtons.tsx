@@ -4,6 +4,10 @@ import { Link } from "expo-router";
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 const SocialLoginButtons = () => {
   return (
@@ -11,7 +15,7 @@ const SocialLoginButtons = () => {
       <Animated.View entering={FadeInDown.delay(300).duration(500)}>
         <Link href={"/signin"} asChild>
           <TouchableOpacity style={styles.button}>
-            <Ionicons name="mail-outline" size={20} color={Colors.black} />
+            <Ionicons name="mail-outline" size={25} color={Colors.white} />
             <Text style={styles.btnText}>Увійти по email</Text>
           </TouchableOpacity>
         </Link>
@@ -45,18 +49,22 @@ const styles = StyleSheet.create({
   },
   button: {
     flexDirection: "row",
-    padding: 10,
-    borderColor: Colors.gray,
-    borderWidth: StyleSheet.hairlineWidth,
-    borderRadius: 25,
+    // padding: 10,
+    // borderColor: Colors.gray,
+    // borderWidth: StyleSheet.hairlineWidth,
+    // borderRadius: 25,
     alignItems: "center",
     justifyContent: "center",
-    gap: 5,
-    marginBottom: 15,
+    gap: 18,
+    marginTop: hp(4),
+    padding: 15,
+    backgroundColor: "black",
+    borderRadius: 99,
   },
   btnText: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: Colors.black,
+    textAlign: "center",
+    color: Colors.white,
+    fontFamily: "outfit",
+    fontSize: wp(5),
   },
 });

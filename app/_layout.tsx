@@ -66,6 +66,10 @@ export default function RootLayout() {
         />
         <Stack.Screen name="signin" options={{ presentation: "modal" }} />
         <Stack.Screen name="signup" options={{ presentation: "modal" }} />
+        <Stack.Screen
+          name="restorePassword"
+          options={{ presentation: "modal" }}
+        />
       </Stack>
       <Toast />
       <MainLayout />
