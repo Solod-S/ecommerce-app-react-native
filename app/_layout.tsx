@@ -30,7 +30,7 @@ const MainLayout = () => {
       // if user authenticated
       // and not in (tabs) => redirect home
       router.replace("/home");
-    } else if (isAuthenticated == false) {
+    } else {
       // if user is not authenticated
       //  redirect to home
       router.replace("(tabs)/");

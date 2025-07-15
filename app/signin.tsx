@@ -199,7 +199,7 @@ const SignInScreen = () => {
             <TouchableOpacity
               onPress={() => {
                 router.dismissAll();
-                router.push("restorePassword");
+                router.push("/restorePassword");
               }}
             >
               <Text style={{ fontSize: hp(2), color: "gray" }}>

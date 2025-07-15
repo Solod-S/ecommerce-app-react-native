@@ -12,6 +12,7 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "app/7",
-    "app/signin cop"
+    "app/signin cop",
+    "app/(tabs)/profil"
   ]
 }
