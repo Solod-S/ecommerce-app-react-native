@@ -27,7 +27,6 @@ const isIphone = Platform.OS === "ios";
 const ProfileScreen = () => {
   const [loading, setLoading] = useState(false);
   const { user, logout } = useAuthStore();
-  console.log(`user`, user);
 
   const handleLogout = () => {
     Vibration.vibrate(200); // Vibrate for 100ms before showing the Alert
