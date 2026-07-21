@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     backgroundColor: Colors.white,
     paddingBottom: 10,
-    marginBottom: 10,
+    // marginBottom: 10,
     gap: 15,
   },
   logo: {

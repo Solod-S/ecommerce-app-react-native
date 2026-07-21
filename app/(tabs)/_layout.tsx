@@ -41,6 +41,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="categories"
+        options={{
+          title: "Категорії",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="grid-outline" size={22} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="explore"
         options={{
           title: "Пошук",
@@ -49,9 +58,11 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="notifications"
         options={{
+          // 👇 Прячем таб-бар на экране деталей
           href: null,
           title: "Сповіщення",
           tabBarIcon: ({ color }) => (
@@ -62,12 +73,24 @@ export default function TabLayout() {
       <Tabs.Screen
         name="cart"
         options={{
+          // 👇 Прячем таб-бар на экране деталей
           href: null,
           title: "Кошик",
           tabBarBadge: 3,
           tabBarIcon: ({ color }) => (
             <Ionicons name="cart-outline" size={22} color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="product-details/[id]"
+        options={{
+          // 👇 Прячем таб-бар на экране деталей
+          tabBarStyle: { display: "none" },
+          href: null,
+          headerShown: true,
+          headerTransparent: true,
+          headerTitle: "",
         }}
       />
       <Tabs.Screen

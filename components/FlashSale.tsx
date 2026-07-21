@@ -1,9 +1,15 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useEffect } from 'react';
 import { Colors } from "@/constants/Colors";
-import { Ionicons } from "@expo/vector-icons";
 import { ProductType } from "@/types/type";
-import ProductItem from './ProductItem';
+import { Ionicons } from "@expo/vector-icons";
+import React, { useEffect } from "react";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import ProductItem from "./ProductItem";
 
 type Props = {
   products: ProductType[];
@@ -28,9 +34,9 @@ const FlashSale = ({ products }: Props) => {
       setTimeUnits({
         days: Math.floor(seconds / (3600 * 24)),
         hours: Math.floor((seconds % (3600 * 24)) / 3600),
-        minutes: Math.floor((seconds % (3600)) / 60),
+        minutes: Math.floor((seconds % 3600) / 60),
         seconds: seconds % 60,
-      })
+      });
     };
 
     const updateCountdown = () => {
@@ -43,7 +49,7 @@ const FlashSale = ({ products }: Props) => {
       } else {
         calculateTimeUnits(timeDifference);
       }
-    }
+    };
 
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
@@ -61,12 +67,12 @@ const FlashSale = ({ products }: Props) => {
         <View style={styles.timerWrapper}>
           <Text style={styles.title}>FlashSale</Text>
           <View style={styles.timer}>
-            <Ionicons name="timer-outline"
-              size={16}
-              color={Colors.black} />
+            <Ionicons name="timer-outline" size={16} color={Colors.black} />
             <Text
-              style={styles.timerTxt}>{`${formatTime(timeUnits.days)}:${formatTime(timeUnits.hours)}:${formatTime(
-              timeUnits.minutes)}:${formatTime(timeUnits.seconds)}`}</Text>
+              style={styles.timerTxt}
+            >{`${formatTime(timeUnits.days)}:${formatTime(timeUnits.hours)}:${formatTime(
+              timeUnits.minutes
+            )}:${formatTime(timeUnits.seconds)}`}</Text>
           </View>
         </View>
         <TouchableOpacity>
@@ -77,10 +83,10 @@ const FlashSale = ({ products }: Props) => {
         data={products}
         horizontal
         showsHorizontalScrollIndicator={false}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={item => item.id.toString()}
         contentContainerStyle={{
           marginLeft: 20,
-          paddingRight: 20
+          paddingRight: 20,
         }}
         renderItem={({ index, item }) => (
           <View style={{ marginRight: 20 }}>
@@ -97,22 +103,23 @@ export default FlashSale;
 const styles = StyleSheet.create({
   container: {
     marginBottom: 20,
+    marginHorizontal: 20,
   },
   titleWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginHorizontal: 20,
+    // marginHorizontal: 20,
     marginBottom: 20,
   },
   title: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: "600",
     letterSpacing: 0.6,
-    color: Colors.black
+    color: Colors.black,
   },
   titleBtn: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: "600",
     letterSpacing: 0.6,
     color: Colors.black,
   },
@@ -122,7 +129,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   timer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 5,
     backgroundColor: Colors.highlight,
     paddingHorizontal: 8,
@@ -131,6 +138,6 @@ const styles = StyleSheet.create({
   },
   timerTxt: {
     color: Colors.black,
-    fontWeight: '500',
+    fontWeight: "500",
   },
 });

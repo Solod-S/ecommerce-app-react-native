@@ -1,4 +1,5 @@
 import Categories from "@/components/Categories";
+import FlashSale from "@/components/FlashSale";
 import Header from "@/components/Header";
 import ProductList from "@/components/ProductList";
 import { CategoryType, ProductType } from "@/types/type";
@@ -6,11 +7,8 @@ import axios from "axios";
 import { Stack } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ActivityIndicator, Image, ScrollView, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
-type Props = {};
-
-const HomeScreen = (props: Props) => {
+const HomeScreen = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [saleProducts, setSaleProducts] = useState<ProductType[]>([]);
   const [categories, setCategories] = useState<CategoryType[]>([]);
@@ -18,8 +16,10 @@ const HomeScreen = (props: Props) => {
 
   const getProducts = async () => {
     try {
-      const URL = `http://192.168.0.158:8000/products`;
+      const URL = `${process.env.EXPO_PUBLIC_SERVER_URL}/products`;
+
       const response = await axios.get(URL);
+
       setProducts(response.data);
       setIsLoading(false);
     } catch (error) {
@@ -29,7 +29,7 @@ const HomeScreen = (props: Props) => {
 
   const getCategories = async () => {
     try {
-      const URL = `http://192.168.0.158:8000/categories`;
+      const URL = `${process.env.EXPO_PUBLIC_SERVER_URL}/categories`;
       const response = await axios.get(URL);
 
       setCategories(response.data);
@@ -41,7 +41,7 @@ const HomeScreen = (props: Props) => {
 
   const getSaleProducts = async () => {
     try {
-      const URL = `http://192.168.0.158:8000/saleProducts`;
+      const URL = `${process.env.EXPO_PUBLIC_SERVER_URL}/saleProducts`;
       const response = await axios.get(URL);
 
       setSaleProducts(response.data);
@@ -52,9 +52,15 @@ const HomeScreen = (props: Props) => {
   };
 
   useEffect(() => {
-    getProducts();
-    getCategories();
-    // getSaleProducts();
+    const loadData = async () => {
+      try {
+        await Promise.all([getProducts(), getCategories(), getSaleProducts()]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadData();
   }, []);
 
   if (isLoading) {
@@ -65,17 +71,22 @@ const HomeScreen = (props: Props) => {
     );
   }
   return (
-    <SafeAreaView
+    <View
       style={{
-        // backgroundColor: Colors.white,
         flex: 1,
       }}
-      edges={["top", "bottom"]}
     >
       <Stack.Screen options={{ headerShown: true, header: () => <Header /> }} />
-      <ScrollView>
+      <ScrollView
+        style={{
+          flex: 1,
+          borderWidth: 1,
+          borderColor: "#ccc",
+          backgroundColor: "#fff",
+        }}
+      >
         <Categories categories={categories} />
-        {/* <FlashSale products={saleProducts} /> */}
+        <FlashSale products={saleProducts} />
         <View style={{ marginHorizontal: 20, marginBottom: 10 }}>
           <Image
             source={require("@/assets/images/sale-banner.jpg")}
@@ -84,7 +95,7 @@ const HomeScreen = (props: Props) => {
         </View>
         <ProductList products={products} flatList={false} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

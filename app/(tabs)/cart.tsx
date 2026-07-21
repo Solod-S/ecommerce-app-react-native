@@ -1,14 +1,21 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import axios from "axios";
-import { CartItemType } from "@/types/type";
-import { Stack } from "expo-router";
-import { useHeaderHeight } from "@react-navigation/elements";
 import { Colors } from "@/constants/Colors";
+import { CartItemType } from "@/types/type";
 import { Ionicons } from "@expo/vector-icons";
-import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useHeaderHeight } from "@react-navigation/elements";
+import axios from "axios";
+import { Stack } from "expo-router";
+import React, { useEffect, useState } from "react";
+import {
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
-type Props = {}
+type Props = {};
 
 const CartScreen = (props: Props) => {
   const [cartItems, setCartItems] = useState<CartItemType[]>([]);
@@ -16,24 +23,31 @@ const CartScreen = (props: Props) => {
 
   useEffect(() => {
     getCartData();
-  }, [])
+  }, []);
 
   const getCartData = async () => {
-    const URL = `http://10.0.2.2:8000/cart`;
+    const URL = `${process.env.EXPO_PUBLIC_SERVER_URL}/cart`;
+
     const response = await axios.get(URL);
 
     setCartItems(response.data);
-  }
+  };
 
   return (
     <>
       <Stack.Screen options={{ headerShown: true, headerTransparent: true }} />
       <View style={[styles.container, { marginTop: headerHeight }]}>
-        <FlatList data={cartItems}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={({ item, index }) => <Animated.View entering={FadeInDown.delay(300 + index * 100).duration(
-            500)}><CartItem
-            item={item} /></Animated.View>} />
+        <FlatList
+          data={cartItems}
+          keyExtractor={item => item.id.toString()}
+          renderItem={({ item, index }) => (
+            <Animated.View
+              entering={FadeInDown.delay(300 + index * 100).duration(500)}
+            >
+              <CartItem item={item} />
+            </Animated.View>
+          )}
+        />
       </View>
       <View style={styles.footer}>
         <View style={styles.priceInfoWrapper}>
@@ -44,8 +58,8 @@ const CartScreen = (props: Props) => {
         </TouchableOpacity>
       </View>
     </>
-  )
-}
+  );
+};
 
 const CartItem = ({ item }: { item: CartItemType }) => {
   return (
@@ -73,10 +87,10 @@ const CartItem = ({ item }: { item: CartItemType }) => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default CartScreen
+export default CartScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -100,22 +114,22 @@ const styles = StyleSheet.create({
   },
   itemInfoWrapper: {
     flex: 1,
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     gap: 10,
   },
   itemText: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
     color: Colors.black,
   },
   itemControlWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   quantityControlWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 15,
   },
   quantityControl: {
@@ -125,30 +139,30 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   footer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: 20,
     backgroundColor: Colors.white,
   },
   priceInfoWrapper: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   totalText: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
     color: Colors.black,
   },
   checkoutBtn: {
     flex: 1,
     backgroundColor: Colors.primary,
     height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: 5,
   },
   checkoutBtnText: {
     fontSize: 16,
-    fontWeight: '500',
+    fontWeight: "500",
     color: Colors.white,
   },
-})
+});

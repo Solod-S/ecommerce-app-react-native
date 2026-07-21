@@ -1,14 +1,14 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
-import { Stack } from "expo-router";
-import { useHeaderHeight } from "@react-navigation/elements";
-import axios from "axios";
+import { Colors } from "@/constants/Colors";
 import { NotificationType } from "@/types/type";
 import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "@/constants/Colors";
-import Animated, { FadeInDown } from 'react-native-reanimated';
+import { useHeaderHeight } from "@react-navigation/elements";
+import axios from "axios";
+import { Stack } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 
-type Props = {}
+type Props = {};
 
 const NotificationsScreen = (props: Props) => {
   const headerHeight = useHeaderHeight();
@@ -16,43 +16,59 @@ const NotificationsScreen = (props: Props) => {
 
   useEffect(() => {
     getNotifications();
-  }, [])
+  }, []);
 
   const getNotifications = async () => {
-    const URL = `http://10.0.2.2:8000/notifications`;
+    const URL = `${process.env.EXPO_PUBLIC_SERVER_URL}/notifications`;
     const response = await axios.get(URL);
 
     setNotifications(response.data);
-  }
+  };
 
   return (
     <>
       <Stack.Screen options={{ headerShown: true, headerTransparent: true }} />
       <View style={[styles.container, { marginTop: headerHeight }]}>
-        <FlatList data={notifications}
-          keyExtractor={(item) => item.id.toString()}
+        <FlatList
+          data={notifications}
+          keyExtractor={item => item.id.toString()}
           showsVerticalScrollIndicator={false}
           renderItem={({ item, index }) => (
-            <Animated.View style={styles.notificationWrapper}
-              entering={FadeInDown.delay(300 + index * 100).duration(500)}>
+            <Animated.View
+              style={styles.notificationWrapper}
+              entering={FadeInDown.delay(300 + index * 100).duration(500)}
+            >
               <View style={styles.notificationIcon}>
-                <Ionicons name="notifications-outline" size={20} color={Colors.black} />
+                <Ionicons
+                  name="notifications-outline"
+                  size={20}
+                  color={Colors.black}
+                />
               </View>
               <View style={styles.notificationInfo}>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
                   <Text style={styles.notificationTitle}>{item.title}</Text>
-                  <Text style={styles.notificationMessage}>{item.timestamp}</Text>
+                  <Text style={styles.notificationMessage}>
+                    {item.timestamp}
+                  </Text>
                 </View>
                 <Text style={styles.notificationMessage}>{item.message}</Text>
               </View>
             </Animated.View>
-          )} />
+          )}
+        />
       </View>
     </>
-  )
-}
+  );
+};
 
-export default NotificationsScreen
+export default NotificationsScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -88,4 +104,4 @@ const styles = StyleSheet.create({
     marginTop: 5,
     lineHeight: 20,
   },
-})
+});

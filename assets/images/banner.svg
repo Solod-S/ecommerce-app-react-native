@@ -1,0 +1,120 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ecommerce app preview</title>
+  <desc id="desc">A preview of the React Native ecommerce app with product lists, categories, and mobile screens.</desc>
+
+  <rect width="1600" height="900" rx="40" fill="#F8FAFC"/>
+  <rect x="48" y="48" width="1504" height="804" rx="36" fill="#FFFFFF" stroke="#DDE5EE" stroke-width="2"/>
+
+  <g opacity="0.72">
+    <path d="M76 210H1524" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M76 374H1524" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M76 538H1524" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M76 702H1524" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M260 76V824" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M560 76V824" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M860 76V824" stroke="#EEF2F7" stroke-width="2"/>
+    <path d="M1160 76V824" stroke="#EEF2F7" stroke-width="2"/>
+  </g>
+
+  <text x="120" y="146" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="74" font-weight="700">Ecommerce App</text>
+  <text x="122" y="196" fill="#58677A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30">Mobile ecommerce built with React Native & Expo</text>
+
+  <g>
+    <rect x="122" y="228" width="146" height="38" rx="19" fill="#EAF1FF" stroke="#CADAF7"/>
+    <text x="146" y="253" fill="#2256A8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">React Native</text>
+
+    <rect x="282" y="228" width="134" height="38" rx="19" fill="#E7F7F1" stroke="#BDEBDD"/>
+    <text x="306" y="253" fill="#14755C" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Expo</text>
+
+    <rect x="430" y="228" width="112" height="38" rx="19" fill="#F6F8FB" stroke="#D9E1EA"/>
+    <text x="454" y="253" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Firebase</text>
+
+    <rect x="556" y="228" width="112" height="38" rx="19" fill="#F6F8FB" stroke="#D9E1EA"/>
+    <text x="580" y="253" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="600">Zustand</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="304" width="936" height="476" rx="26" fill="#FFFFFF" stroke="#D8E1EA" stroke-width="2"/>
+    <rect x="120" y="304" width="936" height="58" rx="26" fill="#F7FAFD"/>
+    <path d="M120 362H1056" stroke="#D8E1EA" stroke-width="2"/>
+    <circle cx="156" cy="333" r="8" fill="#F46A6A"/>
+    <circle cx="184" cy="333" r="8" fill="#F7BE38"/>
+    <circle cx="212" cy="333" r="8" fill="#42C282"/>
+    <rect x="258" y="318" width="264" height="30" rx="15" fill="#EEF3F8"/>
+    <text x="282" y="339" fill="#506176" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16">npx expo start</text>
+
+    <rect x="154" y="396" width="326" height="338" rx="18" fill="#FFFFFF" stroke="#DFE7EF"/>
+    <text x="178" y="437" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Categories</text>
+
+    <g>
+      <rect x="178" y="468" width="278" height="72" rx="12" fill="#F6FAFF" stroke="#CFE0F8"/>
+      <text x="196" y="496" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="650">Clothes</text>
+      <text x="196" y="520" fill="#64758A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">Everyday basics and casual wear</text>
+      <rect x="370" y="486" width="68" height="22" rx="11" fill="#E7F7F1"/>
+      <text x="389" y="502" fill="#14755C" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">12</text>
+    </g>
+
+    <g>
+      <rect x="178" y="558" width="278" height="72" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+      <text x="196" y="586" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="650">Electronics</text>
+      <text x="196" y="610" fill="#64758A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14">Gadgets, audio, and accessories</text>
+      <rect x="378" y="576" width="60" height="22" rx="11" fill="#F3F6FA"/>
+      <text x="395" y="592" fill="#64758A" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">8</text>
+    </g>
+
+    <g>
+      <rect x="178" y="648" width="278" height="56" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+      <text x="196" y="680" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="650">Shoes</text>
+      <rect x="362" y="666" width="76" height="22" rx="11" fill="#FFF4DC"/>
+      <text x="378" y="682" fill="#8A5B00" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12" font-weight="600">Sale</text>
+    </g>
+
+    <rect x="520" y="396" width="502" height="338" rx="18" fill="#FFFFFF" stroke="#DFE7EF"/>
+    <text x="552" y="443" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="33" font-weight="700">Flash Sale</text>
+    <rect x="824" y="414" width="74" height="30" rx="8" fill="#FFFFFF" stroke="#CBD6E2"/>
+    <text x="849" y="434" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">View</text>
+    <rect x="910" y="414" width="76" height="30" rx="8" fill="#E95555"/>
+    <text x="927" y="434" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="600">-30%</text>
+
+    <rect x="552" y="472" width="420" height="1.8" fill="#E5ECF3"/>
+    <text x="552" y="516" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">Curated product feed with categories.</text>
+    <text x="552" y="554" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">Promo banners and sale highlights.</text>
+    <text x="552" y="592" fill="#3D4B5F" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20">Detailed product page navigation.</text>
+
+    <rect x="552" y="632" width="96" height="30" rx="15" fill="#EAF1FF"/>
+    <text x="574" y="653" fill="#2256A8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650">Cart</text>
+    <rect x="660" y="632" width="74" height="30" rx="15" fill="#E7F7F1"/>
+    <text x="682" y="653" fill="#14755C" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650">Auth</text>
+    <rect x="746" y="632" width="92" height="30" rx="15" fill="#F3F6FA"/>
+    <text x="768" y="653" fill="#506176" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650">Search</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1118" y="214" width="320" height="570" rx="42" fill="#182232"/>
+    <rect x="1136" y="232" width="284" height="534" rx="32" fill="#FFFFFF"/>
+    <rect x="1238" y="250" width="80" height="6" rx="3" fill="#CED8E4"/>
+    <text x="1170" y="310" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Product</text>
+    <rect x="1322" y="284" width="64" height="34" rx="9" fill="#2B6FD9"/>
+    <text x="1340" y="306" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650">Buy</text>
+
+    <rect x="1170" y="354" width="216" height="156" rx="12" fill="#FFFFFF" stroke="#DDE5EE"/>
+    <rect x="1190" y="452" width="128" height="9" rx="4.5" fill="#98A7B8"/>
+    <rect x="1190" y="476" width="166" height="9" rx="4.5" fill="#C6D1DD"/>
+    <rect x="1190" y="500" width="148" height="9" rx="4.5" fill="#C6D1DD"/>
+
+    <rect x="1170" y="540" width="216" height="44" rx="10" fill="#F8FAFC" stroke="#DDE5EE"/>
+    <text x="1188" y="568" fill="#182232" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="650">$49.00</text>
+
+    <text x="1170" y="628" fill="#506176" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="650">Details</text>
+    <rect x="1170" y="646" width="92" height="30" rx="15" fill="#EAF1FF"/>
+    <text x="1192" y="667" fill="#2256A8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">New</text>
+    <rect x="1274" y="646" width="92" height="30" rx="15" fill="#E7F7F1"/>
+    <text x="1296" y="667" fill="#14755C" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">In stock</text>
+  </g>
+
+  <defs>
+    <filter id="shadow" x="70" y="170" width="1420" height="660" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#182232" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+</svg>
